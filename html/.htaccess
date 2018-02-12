@@ -1,0 +1,11 @@
+RewriteEngine on
+
+# redirect all slimapi calls to /slimapi/index.php
+RewriteRule ^slimapi/(.+)$ api_index.php [L,NC,QSA]
+
+# otherwise, serve your index.html app
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.+)$ index.php [L]
+
+# For slim api token auth.
+RewriteRule .* - [env=HTTP_AUTHORIZATION:%{HTTP:Authorization}]

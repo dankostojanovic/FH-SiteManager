@@ -1,0 +1,226 @@
+/*
+ * It is advised not to edit the smartadmin_production.css
+ * as this will override any changes you make in the 
+ * later versions of this theme. 
+ * 
+ * We advise that you use use this CSS to override 
+ * SmartAdmin styles. 
+ * 
+ * Rename the stylesheet to whatever your liking so it will stay
+ * unique to you with each update of SmartAdmin.
+ */
+
+/*
+ * INDEX
+ * 
+ * - HTML
+ * - BODY
+ * - CUSTOM STYLES
+ */
+.handsontable .htDimmed {
+  cursor:not-allowed;
+  background: #f3f3f3;
+}
+
+.btn-header>:first-child>a {
+    margin: 5px 0 0 !important;
+}
+
+#left-panel {
+    padding-top: 0px !important;
+}
+
+.no-margin {
+    margin: 0;
+}
+ul.ui-autocomplete {
+    z-index: 1100 !important;
+}
+.sapphire_fade {
+    display: none;
+    position:absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: #ababab;
+    z-index: 1001;
+    -moz-opacity: 0.8;
+    opacity: .70;
+    filter: alpha(opacity=80);
+}
+.sapphire_loader {
+    display: none;
+    position: absolute;
+    top: 30%;
+    left: 40%;
+    width: 270px;
+    height: 270px;
+    padding:30px 15px 0px;
+    border: 3px solid #ababab;
+    box-shadow:1px 1px 10px #ababab;
+    border-radius:20px;
+    background-color: white;
+    z-index: 1002;
+    text-align:center;
+    overflow: auto;
+}
+
+#envLabel {
+    animation: blink 1s linear infinite;
+    color: #F00;
+    font-size: 22px;
+    font-weight: bold;
+    left: 50%;
+    line-height: 40px;
+    position: absolute;
+    transform: translateX(-50%);
+    text-transform: uppercase;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+#sites-add-modal {
+    width: 70% !important;
+}
+
+.show-border-right {
+    border-right: 1px solid #ccc;
+}
+
+#add-site-form-list {
+    min-height: 260px;
+    overflow-y: auto;
+}
+
+.btn-smart-form {
+    height: 32px;
+    padding: 5px 10px;
+    margin-left: 3px;
+}
+
+.row-margin-top {
+    margin-top: 3px !important;
+}
+
+.create-site-list {
+    list-style-type: none;
+    margin-left: 0px;
+    padding-left: 0px;
+}
+
+.create-site-list li {
+    padding: 5px 10px;
+}
+
+.duplicate-site {
+    background-color: #a90329;
+    color: #fff;
+}
+
+#container-overlay {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 998;
+    background-color: #474544;
+    opacity: 0.5;
+    display: none;
+}
+
+#absolute-container-right {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    min-width: 300px;
+    background-color: #fff;
+    height: calc(100% - 51px);
+    z-index: 999;
+    padding: 20px;
+    display: none;
+}
+
+.errors-box {
+    display: none;
+    color: red;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid red;
+    margin-bottom: 15px;
+}
+
+.errors-box .error-title {
+    font-weight: bold;
+}
+
+#absolute-container-right .large-right-form .dropdown-menu>li>a {
+    padding: 3px 40px !important;
+} 
+
+#absolute-container-right .large-right-form .bootstrap-select.btn-group.show-tick .dropdown-menu li.selected a span.check-mark {
+    left: 20px !important;
+} 
+
+.floating-modal-content .dropdown-menu > li > a {
+    padding: 3px 40px !important;
+}
+
+.floating-modal-content .bootstrap-select.btn-group.show-tick .dropdown-menu li.selected a span.check-mark {
+    left: 20px !important;
+}
+
+#content {
+    min-width: 1465px;
+}
+
+.swal-table{
+    max-height: 250px;
+    overflow: auto;
+}
+
+@media screen and (min-width: 700px) {
+    .large-right-form {
+        width: 700px;
+    }
+}
+
+@media screen and (min-width: 301px) and (max-width: 699px){
+    .large-right-form {
+        width: 300px;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    .large-right-form {
+        width: 100%;
+    }
+}
+
+.col-wrap-margin {
+    margin-top: 15px;
+}
+
+.dropdown-menu {
+    max-width: 100% !important;
+}
+
+.removed-top-margin {
+    margin-top: 0px;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+
+/*.handsontableInputHolder {
+    top: 0 !important;
+    z-index: 9999;
+}
+
+.handsontableInputHolder .handsontableEditor {
+    height: 300px;
+    overflow-y: hidden;
+}*/

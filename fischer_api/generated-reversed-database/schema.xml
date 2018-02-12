@@ -1,0 +1,1074 @@
+<?xml version="1.0" encoding="utf-8"?>
+<database name="default" defaultIdMethod="native" defaultPhpNamingMethod="underscore">
+  <table name="application_configuration" idMethod="native" phpName="ApplicationConfiguration">
+    <column name="id" phpName="Id" type="INTEGER" size="10" sqlType="int(10) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="application" phpName="Application" type="VARCHAR" size="45" required="true"/>
+    <column name="appconf" phpName="Appconf" type="LONGVARCHAR"/>
+    <column name="fhrole" phpName="Fhrole" type="VARCHAR" size="45" required="true"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="attached_building_catalog" idMethod="native" phpName="AttachedBuildingCatalog">
+    <column name="attached_building_catalog_id" phpName="AttachedBuildingCatalogId" type="INTEGER" sqlType="int(11) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="catalog_id" phpName="CatalogId" type="INTEGER" sqlType="int(11) unsigned" required="true"/>
+    <column name="product_type" phpName="ProductType" type="VARCHAR" size="2"/>
+    <column name="product_code" phpName="ProductCode" type="VARCHAR" size="9"/>
+    <column name="building_type" phpName="BuildingType" type="VARCHAR" size="6"/>
+    <column name="building_name" phpName="BuildingName" type="VARCHAR" size="25"/>
+    <column name="home_number" phpName="HomeNumber" type="VARCHAR" size="4"/>
+    <column name="plan_number" phpName="PlanNumber" type="VARCHAR" size="6"/>
+    <column name="plan_name" phpName="PlanName" type="VARCHAR" size="25"/>
+    <column name="lower_level" phpName="LowerLevel" type="BOOLEAN" size="1" sqlType="tinyint(1) unsigned"/>
+    <column name="garage_entry" phpName="GarageEntry" type="VARCHAR" size="5"/>
+    <column name="garage_entry_alt" phpName="GarageEntryAlt" type="VARCHAR" size="5"/>
+    <column name="rear_exit" phpName="RearExit" type="VARCHAR" size="5"/>
+    <column name="date_created" phpName="DateCreated" type="DATE"/>
+    <column name="created_by" phpName="CreatedBy" type="VARCHAR" size="19"/>
+    <column name="date_modified" phpName="DateModified" type="DATE"/>
+    <column name="modified_by" phpName="ModifiedBy" type="VARCHAR" size="19"/>
+    <column name="floor" phpName="Floor" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="bdgt_neighborhood" idMethod="native" phpName="BdgtNeighborhood">
+    <column name="bdgt_neigh_record_id" phpName="BdgtNeighRecordId" type="INTEGER" sqlType="int(11) unsigned" primaryKey="true" required="true"/>
+    <column name="bdgt_neigh_name" phpName="BdgtNeighName" type="VARCHAR" size="51"/>
+    <column name="internal_developer" phpName="InternalDeveloper" type="INTEGER" size="1"/>
+    <column name="bdgt_n_created_by" phpName="BdgtNCreatedBy" type="VARCHAR" size="20"/>
+    <column name="bdgt_n_created_date" phpName="BdgtNCreatedDate" type="DATE"/>
+    <column name="bdgt_n_user_id" phpName="BdgtNUserId" type="VARCHAR" size="20"/>
+    <column name="bdgt_n_last_modified" phpName="BdgtNLastModified" type="DATE"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="commsitelimitation" idMethod="native" phpName="Commsitelimitation">
+    <column name="idcommsitelimitation" phpName="Idcommsitelimitation" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="site_number" phpName="SiteNumber" type="VARCHAR" size="45" required="true"/>
+    <column name="limitation_code" phpName="LimitationCode" type="INTEGER" required="true"/>
+    <column name="date_created" phpName="DateCreated" type="TIMESTAMP"/>
+    <column name="last_modified_date" phpName="LastModifiedDate" type="TIMESTAMP"/>
+    <column name="modified_by" phpName="ModifiedBy" type="VARCHAR" size="100"/>
+    <column name="filler1" phpName="Filler1" type="VARCHAR" size="200"/>
+    <column name="filler2" phpName="Filler2" type="VARCHAR" size="200"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="community" idMethod="native" phpName="Community">
+    <column name="id" phpName="Id" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="bdgt_neigh_record_id" phpName="BdgtNeighRecordId" type="INTEGER" sqlType="int(11) unsigned"/>
+    <column name="division_id" phpName="DivisionId" type="INTEGER" required="true" defaultValue="0"/>
+    <column name="code" phpName="Code" type="VARCHAR" size="6" required="true"/>
+    <column name="name" phpName="Name" type="VARCHAR" size="256" required="true"/>
+    <column name="show_on_dash" phpName="ShowOnDash" type="TINYINT" required="true" defaultValue="0"/>
+    <column name="city" phpName="City" type="VARCHAR" size="50"/>
+    <column name="county" phpName="County" type="VARCHAR" size="50"/>
+    <column name="state" phpName="State" type="VARCHAR" size="2"/>
+    <column name="tax_rate" phpName="TaxRate" type="DOUBLE" size="6" scale="2"/>
+    <column name="school_district" phpName="SchoolDistrict" type="VARCHAR" size="50"/>
+    <column name="product_type" phpName="ProductType" type="VARCHAR" size="10"/>
+    <column name="plot_plan_schd_dur" phpName="PlotPlanSchdDur" type="INTEGER"/>
+    <column name="plot_plan_recd_dur" phpName="PlotPlanRecdDur" type="INTEGER"/>
+    <column name="devp_rvw_subd_dur" phpName="DevpRvwSubdDur" type="INTEGER"/>
+    <column name="devp_rvw_recd_dur" phpName="DevpRvwRecdDur" type="INTEGER"/>
+    <column name="zone_subm_dur" phpName="ZoneSubmDur" type="INTEGER"/>
+    <column name="zone_recd_dur" phpName="ZoneRecdDur" type="INTEGER"/>
+    <column name="bldg_perm_subm_dur" phpName="BldgPermSubmDur" type="INTEGER"/>
+    <column name="bldg_perm_recd_dur" phpName="BldgPermRecdDur" type="INTEGER"/>
+    <column name="file_to_estimating_dur" phpName="FileToEstimatingDur" type="INTEGER"/>
+    <column name="days_to_start_dur" phpName="DaysToStartDur" type="INTEGER"/>
+    <column name="truss_subm_dur" phpName="TrussSubmDur" type="INTEGER"/>
+    <column name="truss_recd_dur" phpName="TrussRecdDur" type="INTEGER"/>
+    <column name="county_subm_dur" phpName="CountySubmDur" type="INTEGER"/>
+    <column name="county_recd_dur" phpName="CountyRecdDur" type="INTEGER"/>
+    <column name="city1_name" phpName="City1Name" type="VARCHAR" size="45"/>
+    <column name="city2_name" phpName="City2Name" type="VARCHAR" size="45"/>
+    <column name="city_of_clerk" phpName="CityOfClerk" type="VARCHAR" size="50"/>
+    <column name="when_created" phpName="WhenCreated" type="TIMESTAMP"/>
+    <column name="when_updated" phpName="WhenUpdated" type="TIMESTAMP"/>
+    <column name="when_inactive" phpName="WhenInactive" type="TIMESTAMP"/>
+    <column name="created_by" phpName="CreatedBy" type="INTEGER" required="true" defaultValue="0"/>
+    <column name="updated_by" phpName="UpdatedBy" type="INTEGER" defaultValue="0"/>
+    <column name="inactive_by" phpName="InactiveBy" type="INTEGER" defaultValue="0"/>
+    <column name="is_active" phpName="IsActive" type="BOOLEAN" size="1" sqlType="tinyint(1) unsigned" required="true" defaultValue="false"/>
+    <column name="is_deleted" phpName="IsDeleted" type="BOOLEAN" size="1" sqlType="tinyint(1) unsigned" required="true" defaultValue="false"/>
+    <column name="is_active_estimating" phpName="IsActiveEstimating" type="BOOLEAN" size="1" sqlType="tinyint(1) unsigned" required="true" defaultValue="false"/>
+    <column name="is_active_marketing" phpName="IsActiveMarketing" type="BOOLEAN" size="1" sqlType="tinyint(1) unsigned" required="true" defaultValue="false"/>
+    <column name="is_active_land_mgmt" phpName="IsActiveLandMgmt" type="BOOLEAN" size="1" sqlType="tinyint(1) unsigned" required="true" defaultValue="false"/>
+    <foreign-key foreignTable="division" name="FK_community_2_division">
+      <reference local="division_id" foreign="division_id"/>
+    </foreign-key>
+    <foreign-key foreignTable="bdgt_neighborhood" name="FK_community_bdgt_neighborhood">
+      <reference local="bdgt_neigh_record_id" foreign="bdgt_neigh_record_id"/>
+    </foreign-key>
+    <index name="FK_community_2_division">
+      <index-column name="division_id"/>
+    </index>
+    <index name="FK_community_bdgt_neighborhood_idx">
+      <index-column name="bdgt_neigh_record_id"/>
+    </index>
+    <unique name="code">
+      <unique-column name="code"/>
+    </unique>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="community_plan_base_investment" idMethod="native" phpName="CommunityPlanBaseInvestment">
+    <column name="plan_base_inv_id" phpName="PlanBaseInvId" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="community_id" phpName="CommunityId" type="INTEGER" required="true"/>
+    <column name="section_id" phpName="SectionId" type="INTEGER" defaultValue="0"/>
+    <column name="plan_master" phpName="PlanMaster" type="VARCHAR" size="5"/>
+    <column name="elevation" phpName="Elevation" type="VARCHAR" size="6"/>
+    <column name="cost" phpName="Cost" type="FLOAT"/>
+    <column name="effective_date" phpName="EffectiveDate" type="DATE"/>
+    <column name="im_code" phpName="ImCode" type="VARCHAR" size="12"/>
+    <column name="restrictions" phpName="Restrictions" type="LONGVARCHAR"/>
+    <column name="restrictions2" phpName="Restrictions2" type="LONGVARCHAR"/>
+    <column name="date_created" phpName="DateCreated" type="TIMESTAMP"/>
+    <column name="created_by" phpName="CreatedBy" type="VARCHAR" size="20"/>
+    <column name="last_modified" phpName="LastModified" type="TIMESTAMP"/>
+    <column name="modified_by" phpName="ModifiedBy" type="VARCHAR" size="20"/>
+    <column name="process_record" phpName="ProcessRecord" type="BOOLEAN" size="1" required="true" defaultValue="false"/>
+    <foreign-key foreignTable="community" name="FK_community_2_base_investment">
+      <reference local="community_id" foreign="id"/>
+    </foreign-key>
+    <index name="Community">
+      <index-column name="community_id"/>
+    </index>
+    <index name="Section_ID">
+      <index-column name="section_id"/>
+    </index>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="community_section" idMethod="native" phpName="CommunitySection">
+    <column name="section_id" phpName="SectionId" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="community_id" phpName="CommunityId" type="INTEGER"/>
+    <column name="section_name" phpName="SectionName" type="VARCHAR" size="11" required="true"/>
+    <column name="spec_level_id" phpName="SpecLevelId" type="INTEGER" sqlType="int(11) unsigned"/>
+    <column name="created_by" phpName="CreatedBy" type="INTEGER" sqlType="int(11) unsigned"/>
+    <column name="created_date" phpName="CreatedDate" type="TIMESTAMP"/>
+    <column name="last_modified_by" phpName="LastModifiedBy" type="INTEGER" sqlType="int(11) unsigned"/>
+    <column name="last_modified_date" phpName="LastModifiedDate" type="TIMESTAMP"/>
+    <column name="is_deleted" phpName="IsDeleted" type="BOOLEAN" size="1" sqlType="tinyint(1) unsigned" required="true" defaultValue="false"/>
+    <foreign-key foreignTable="community" name="FK_community">
+      <reference local="community_id" foreign="id"/>
+    </foreign-key>
+    <foreign-key foreignTable="spec_levels" name="FK_community_section_spec_levels">
+      <reference local="spec_level_id" foreign="spec_level_id"/>
+    </foreign-key>
+    <index name="community_id">
+      <index-column name="community_id"/>
+    </index>
+    <index name="section_name">
+      <index-column name="section_name"/>
+    </index>
+    <index name="FK_community_section_spec_levels_idx">
+      <index-column name="spec_level_id"/>
+    </index>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="community_section_legal" idMethod="native" phpName="CommunitySectionLegal">
+    <column name="legal_section_id" phpName="LegalSectionId" type="INTEGER" sqlType="int(11) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="community_id" phpName="CommunityId" type="INTEGER" required="true"/>
+    <column name="legal_section_name" phpName="LegalSectionName" type="VARCHAR" size="16"/>
+    <column name="section_phase_name" phpName="SectionPhaseName" type="VARCHAR" size="164"/>
+    <column name="plat_recording_book" phpName="PlatRecordingBook" type="VARCHAR" size="71"/>
+    <column name="plat_recording_date" phpName="PlatRecordingDate" type="DATE"/>
+    <column name="recorded_name" phpName="RecordedName" type="VARCHAR" size="71"/>
+    <column name="legal_description" phpName="LegalDescription" type="LONGVARCHAR"/>
+    <column name="covenant_restriction" phpName="CovenantRestriction" type="LONGVARCHAR"/>
+    <column name="covenant_restriction2" phpName="CovenantRestriction2" type="LONGVARCHAR"/>
+    <column name="covenant_restriction3" phpName="CovenantRestriction3" type="LONGVARCHAR"/>
+    <column name="zoning_jurisdiction" phpName="ZoningJurisdiction" type="VARCHAR" size="128"/>
+    <column name="zoning_jurisdiction2" phpName="ZoningJurisdiction2" type="VARCHAR" size="128"/>
+    <column name="zoning_classification" phpName="ZoningClassification" type="VARCHAR" size="128"/>
+    <column name="zoning_classification2" phpName="ZoningClassification2" type="VARCHAR" size="128"/>
+    <column name="front_yard_minimum" phpName="FrontYardMinimum" type="VARCHAR" size="128"/>
+    <column name="front_yard_minimum2" phpName="FrontYardMinimum2" type="VARCHAR" size="128"/>
+    <column name="side_yard_minimum" phpName="SideYardMinimum" type="VARCHAR" size="128"/>
+    <column name="side_yard_minimum2" phpName="SideYardMinimum2" type="VARCHAR" size="128"/>
+    <column name="combined_side_minimum" phpName="CombinedSideMinimum" type="VARCHAR" size="128"/>
+    <column name="combined_side_minimum2" phpName="CombinedSideMinimum2" type="VARCHAR" size="128"/>
+    <column name="rear_yard_minimum" phpName="RearYardMinimum" type="VARCHAR" size="128"/>
+    <column name="rear_yard_minimum2" phpName="RearYardMinimum2" type="VARCHAR" size="128"/>
+    <column name="sideon_corner_lot_min" phpName="SideonCornerLotMin" type="VARCHAR" size="128"/>
+    <column name="sideon_corner_lot_min2" phpName="SideonCornerLotMin2" type="VARCHAR" size="128"/>
+    <column name="prior_deed_reference" phpName="PriorDeedReference" type="LONGVARCHAR"/>
+    <column name="comments" phpName="Comments" type="LONGVARCHAR"/>
+    <column name="min_lot_size_front_entry" phpName="MinLotSizeFrontEntry" type="INTEGER" size="2"/>
+    <column name="min_lot_size_side_entry" phpName="MinLotSizeSideEntry" type="INTEGER" size="2"/>
+    <column name="min_lot_size_rear_entry" phpName="MinLotSizeRearEntry" type="INTEGER" size="2"/>
+    <column name="tfg_zoning_jurisdictio" phpName="TfgZoningJurisdictio" type="VARCHAR" size="51"/>
+    <column name="tfg_zoning_classificat" phpName="TfgZoningClassificat" type="VARCHAR" size="21"/>
+    <column name="tfg_front_yard_minimum" phpName="TfgFrontYardMinimum" type="VARCHAR" size="21"/>
+    <column name="tfg_side_yard_minimum" phpName="TfgSideYardMinimum" type="VARCHAR" size="21"/>
+    <column name="tfg_combined_side_minim" phpName="TfgCombinedSideMinim" type="VARCHAR" size="21"/>
+    <column name="tfg_rear_yard_minimum" phpName="TfgRearYardMinimum" type="VARCHAR" size="21"/>
+    <column name="tfg_sideon_corner_minim" phpName="TfgSideonCornerMinim" type="VARCHAR" size="21"/>
+    <column name="width_at_setback" phpName="WidthAtSetback" type="VARCHAR" size="64"/>
+    <column name="width_at_setback2" phpName="WidthAtSetback2" type="VARCHAR" size="64"/>
+    <column name="tfg_width_at_setback" phpName="TfgWidthAtSetback" type="VARCHAR" size="21"/>
+    <column name="side_next_to_street1" phpName="SideNextToStreet1" type="VARCHAR" size="21"/>
+    <column name="side_next_to_street2" phpName="SideNextToStreet2" type="VARCHAR" size="21"/>
+    <column name="tfg_side_next_to_street" phpName="TfgSideNextToStreet" type="VARCHAR" size="21"/>
+    <column name="min_sq_ft_per_lot" phpName="MinSqFtPerLot" type="INTEGER" size="6"/>
+    <column name="min_sq_ft_ranch" phpName="MinSqFtRanch" type="INTEGER" size="6"/>
+    <column name="min_sq_ft2_story" phpName="MinSqFt2Story" type="INTEGER" size="6"/>
+    <column name="min_sq_ft2_story1_master" phpName="MinSqFt2Story1Master" type="INTEGER" size="6"/>
+    <column name="base_section" phpName="BaseSection" type="VARCHAR" size="20"/>
+    <column name="base_section_old" phpName="BaseSectionOld" type="VARCHAR" size="20"/>
+    <column name="min_sq_ft_per_lot2" phpName="MinSqFtPerLot2" type="INTEGER" size="6"/>
+    <column name="tfg_zoning_juris2" phpName="TfgZoningJuris2" type="VARCHAR" size="51"/>
+    <column name="tfg_zoning_class2" phpName="TfgZoningClass2" type="VARCHAR" size="21"/>
+    <column name="tfg_front_yard_min2" phpName="TfgFrontYardMin2" type="FLOAT"/>
+    <column name="tfg_side_yard_min2" phpName="TfgSideYardMin2" type="FLOAT"/>
+    <column name="tfg_combined_side_min2" phpName="TfgCombinedSideMin2" type="FLOAT"/>
+    <column name="tfg_rear_yard_min2" phpName="TfgRearYardMin2" type="FLOAT"/>
+    <column name="two_story_comments" phpName="TwoStoryComments" type="LONGVARCHAR"/>
+    <column name="tfg_side_on_corner_min2" phpName="TfgSideOnCornerMin2" type="FLOAT"/>
+    <column name="tfg_width_at_setback2" phpName="TfgWidthAtSetback2" type="FLOAT"/>
+    <column name="tfg_side_next_to_street2" phpName="TfgSideNextToStreet2" type="FLOAT"/>
+    <column name="developer" phpName="Developer" type="VARCHAR" size="128"/>
+    <column name="engineer" phpName="Engineer" type="VARCHAR" size="128"/>
+    <column name="zone1_spec_level_id" phpName="Zone1SpecLevelId" type="INTEGER" size="2"/>
+    <column name="zone2_spec_level_id" phpName="Zone2SpecLevelId" type="INTEGER" size="2"/>
+    <column name="max_sq_ft_ranch" phpName="MaxSqFtRanch" type="INTEGER" size="2"/>
+    <column name="ranch_comments" phpName="RanchComments" type="LONGVARCHAR"/>
+    <column name="max_sq_ft2_story" phpName="MaxSqFt2Story" type="INTEGER" size="2"/>
+    <column name="deed_legal_description" phpName="DeedLegalDescription" type="LONGVARCHAR"/>
+    <column name="created_by" phpName="CreatedBy" type="INTEGER" sqlType="int(11) unsigned"/>
+    <column name="created_date" phpName="CreatedDate" type="TIMESTAMP"/>
+    <column name="last_modified_by" phpName="LastModifiedBy" type="INTEGER" sqlType="int(11) unsigned"/>
+    <column name="last_modified_date" phpName="LastModifiedDate" type="TIMESTAMP"/>
+    <column name="is_deleted" phpName="IsDeleted" type="BOOLEAN" size="1" sqlType="tinyint(1) unsigned" required="true" defaultValue="false"/>
+    <foreign-key foreignTable="community" name="FK_legal_2_community">
+      <reference local="community_id" foreign="id"/>
+    </foreign-key>
+    <index name="community">
+      <index-column name="community_id"/>
+    </index>
+    <index name="legal_section_name">
+      <index-column name="legal_section_name"/>
+    </index>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="community_site" idMethod="native" phpName="CommunitySite">
+    <column name="site_id" phpName="SiteId" type="INTEGER" sqlType="int(11) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="community_id" phpName="CommunityId" type="INTEGER" required="true" defaultValue="0"/>
+    <column name="section_id" phpName="SectionId" type="INTEGER" required="true" defaultValue="0"/>
+    <column name="legal_section_id" phpName="LegalSectionId" type="INTEGER" sqlType="int(11) unsigned" required="true" defaultValue="0"/>
+    <column name="spec_level_id" phpName="SpecLevelId" type="INTEGER" sqlType="int(11) unsigned"/>
+    <column name="pricing_group_id" phpName="PricingGroupId" type="INTEGER" sqlType="int(11) unsigned"/>
+    <column name="contract_id" phpName="ContractId" type="INTEGER" sqlType="int(11) unsigned"/>
+    <column name="job_number" phpName="JobNumber" type="VARCHAR" size="12" required="true"/>
+    <column name="site_number" phpName="SiteNumber" type="VARCHAR" size="12" required="true"/>
+    <column name="purchaser" phpName="Purchaser" type="VARCHAR" size="50"/>
+    <column name="building_number" phpName="BuildingNumber" type="VARCHAR" size="4"/>
+    <column name="building_type" phpName="BuildingType" type="VARCHAR" size="31"/>
+    <column name="recording_date" phpName="RecordingDate" type="TIMESTAMP"/>
+    <column name="deed_ref_book_type" phpName="DeedRefBookType" type="VARCHAR" size="26"/>
+    <column name="deed_ref_book" phpName="DeedRefBook" type="VARCHAR" size="6"/>
+    <column name="deed_ref_page" phpName="DeedRefPage" type="VARCHAR" size="5"/>
+    <column name="address1" phpName="Address1" type="VARCHAR" size="255"/>
+    <column name="address2" phpName="Address2" type="VARCHAR" size="51"/>
+    <column name="partial_rel_date" phpName="PartialRelDate" type="TIMESTAMP"/>
+    <column name="lot_purchase_price" phpName="LotPurchasePrice" type="FLOAT"/>
+    <column name="PIDN_type" phpName="PidnType" type="VARCHAR" size="21"/>
+    <column name="parcel_id" phpName="ParcelId" type="VARCHAR" size="31"/>
+    <column name="group_id" phpName="GroupId" type="VARCHAR" size="11"/>
+    <column name="comments" phpName="Comments" type="LONGVARCHAR"/>
+    <column name="site_premium" phpName="SitePremium" type="FLOAT"/>
+    <column name="est_const_cost" phpName="EstConstCost" type="FLOAT"/>
+    <column name="available_flag" phpName="AvailableFlag" type="BOOLEAN" size="1" sqlType="tinyint(1) unsigned" required="true" defaultValue="false"/>
+    <column name="is_available_flag_editable" phpName="IsAvailableFlagEditable" type="BOOLEAN" size="1" sqlType="tinyint(1) unsigned" required="true" defaultValue="true"/>
+    <column name="width" phpName="Width" type="FLOAT"/>
+    <column name="garage_location" phpName="GarageLocation" type="VARCHAR" size="11"/>
+    <column name="garage_entry" phpName="GarageEntry" type="VARCHAR" size="6"/>
+    <column name="rear_exit" phpName="RearExit" type="VARCHAR" size="6"/>
+    <column name="site_notes_1" phpName="SiteNotes1" type="VARCHAR" size="255"/>
+    <column name="site_notes_2" phpName="SiteNotes2" type="VARCHAR" size="255"/>
+    <column name="basement_description" phpName="BasementDescription" type="VARCHAR" size="2"/>
+    <column name="unit_number" phpName="UnitNumber" type="VARCHAR" size="16"/>
+    <column name="lot_number" phpName="LotNumber" type="VARCHAR" size="16"/>
+    <column name="site_plan_cost" phpName="SitePlanCost" type="FLOAT"/>
+    <column name="architecture_comments" phpName="ArchitectureComments" type="VARCHAR" size="247"/>
+    <column name="depth" phpName="Depth" type="FLOAT"/>
+    <column name="top_of" phpName="TopOf" type="FLOAT"/>
+    <column name="above_curb" phpName="AboveCurb" type="FLOAT"/>
+    <column name="tos_or_f" phpName="TosOrF" type="VARCHAR" size="4"/>
+    <column name="buildable_width" phpName="BuildableWidth" type="VARCHAR" size="11"/>
+    <column name="buildable_depth" phpName="BuildableDepth" type="VARCHAR" size="11"/>
+    <column name="a_or_b_curb" phpName="AOrBCurb" type="VARCHAR" size="6"/>
+    <column name="fire_suppress_room_addr" phpName="FireSuppressRoomAddr" type="VARCHAR" size="30"/>
+    <column name="gc_job_number" phpName="GcJobNumber" type="VARCHAR" size="12"/>
+    <column name="gc_job_number_new" phpName="GcJobNumberNew" type="VARCHAR" size="25"/>
+    <column name="engineer" phpName="Engineer" type="VARCHAR" size="5"/>
+    <column name="set_back" phpName="SetBack" type="FLOAT"/>
+    <column name="lot_description" phpName="LotDescription" type="VARCHAR" size="51"/>
+    <column name="street_addr_range" phpName="StreetAddrRange" type="VARCHAR" size="61"/>
+    <column name="instrument_number" phpName="InstrumentNumber" type="VARCHAR" size="100"/>
+    <column name="legal_lot_number" phpName="LegalLotNumber" type="VARCHAR" size="11"/>
+    <column name="construction_notes" phpName="ConstructionNotes" type="LONGVARCHAR"/>
+    <column name="general_notes" phpName="GeneralNotes" type="LONGVARCHAR"/>
+    <column name="site_notes" phpName="SiteNotes" type="LONGVARCHAR"/>
+    <column name="additional_notes" phpName="AdditionalNotes" type="LONGVARCHAR"/>
+    <column name="sewer_tap" phpName="SewerTap" type="VARCHAR" size="100"/>
+    <column name="sanitary_invert" phpName="SanitaryInvert" type="VARCHAR" size="15"/>
+    <column name="water_tap" phpName="WaterTap" type="VARCHAR" size="100"/>
+    <column name="utility_easement" phpName="UtilityEasement" type="VARCHAR" size="256"/>
+    <column name="sanitary_easement" phpName="SanitaryEasement" type="VARCHAR" size="256"/>
+    <column name="storm_easement" phpName="StormEasement" type="VARCHAR" size="256"/>
+    <column name="water_easement" phpName="WaterEasement" type="VARCHAR" size="256"/>
+    <column name="other_easement" phpName="OtherEasement" type="VARCHAR" size="256"/>
+    <column name="catch_basin" phpName="CatchBasin" type="VARCHAR" size="100"/>
+    <column name="sanitary_manhole" phpName="SanitaryManhole" type="VARCHAR" size="100"/>
+    <column name="storm_manhole" phpName="StormManhole" type="VARCHAR" size="100"/>
+    <column name="fire_hydrant" phpName="FireHydrant" type="VARCHAR" size="100"/>
+    <column name="drainage_pattern" phpName="DrainagePattern" type="VARCHAR" size="30"/>
+    <column name="sidewalks" phpName="Sidewalks" type="VARCHAR" size="30"/>
+    <column name="transformers" phpName="Transformers" type="VARCHAR" size="128"/>
+    <column name="secondary_pedestal" phpName="SecondaryPedestal" type="VARCHAR" size="164"/>
+    <column name="hold_reason_id" phpName="HoldReasonId" type="INTEGER" sqlType="int(11) unsigned"/>
+    <column name="hold_vendor_id" phpName="HoldVendorId" type="VARCHAR" size="5"/>
+    <column name="hold_date" phpName="HoldDate" type="DATE"/>
+    <column name="hold_control_code" phpName="HoldControlCode" type="VARCHAR" size="8"/>
+    <column name="hold_deposit" phpName="HoldDeposit" type="FLOAT"/>
+    <column name="hold_notes" phpName="HoldNotes" type="VARCHAR" size="255"/>
+    <column name="hold_created_by" phpName="HoldCreatedBy" type="INTEGER" sqlType="int(11) unsigned"/>
+    <column name="hold_created_date" phpName="HoldCreatedDate" type="TIMESTAMP"/>
+    <column name="hold_last_modified_by" phpName="HoldLastModifiedBy" type="INTEGER" sqlType="int(11) unsigned"/>
+    <column name="hold_last_modified_date" phpName="HoldLastModifiedDate" type="TIMESTAMP"/>
+    <column name="created_by" phpName="CreatedBy" type="INTEGER" sqlType="int(11) unsigned"/>
+    <column name="created_date" phpName="CreatedDate" type="TIMESTAMP"/>
+    <column name="last_modified_by" phpName="LastModifiedBy" type="INTEGER" sqlType="int(11) unsigned"/>
+    <column name="last_modified_date" phpName="LastModifiedDate" type="TIMESTAMP"/>
+    <column name="is_deleted" phpName="IsDeleted" type="BOOLEAN" size="1" sqlType="tinyint(1) unsigned" required="true" defaultValue="false"/>
+    <foreign-key foreignTable="spec_levels" name="FK_community_site_spec_levels">
+      <reference local="spec_level_id" foreign="spec_level_id"/>
+    </foreign-key>
+    <foreign-key foreignTable="community" name="FK_site_2_community">
+      <reference local="community_id" foreign="id"/>
+    </foreign-key>
+    <foreign-key foreignTable="community_section" name="FK_site_2_section">
+      <reference local="section_id" foreign="section_id"/>
+    </foreign-key>
+    <foreign-key foreignTable="contract" name="FK_site_contract">
+      <reference local="contract_id" foreign="contract_id"/>
+    </foreign-key>
+    <foreign-key foreignTable="community_section_legal" name="FK_site_legalsection">
+      <reference local="legal_section_id" foreign="legal_section_id"/>
+    </foreign-key>
+    <foreign-key foreignTable="pricing_group" name="FK_site_pricing_group">
+      <reference local="pricing_group_id" foreign="pricing_group_id"/>
+    </foreign-key>
+    <foreign-key foreignTable="sitehold_reason" name="FK_site_sitehold_reason">
+      <reference local="hold_reason_id" foreign="sitehold_reason_id"/>
+    </foreign-key>
+    <index name="community_id">
+      <index-column name="community_id"/>
+    </index>
+    <index name="section_id">
+      <index-column name="section_id"/>
+    </index>
+    <index name="job_number">
+      <index-column name="job_number"/>
+    </index>
+    <index name="site_number">
+      <index-column name="site_number"/>
+    </index>
+    <index name="FK_site_legalsection_idx">
+      <index-column name="legal_section_id"/>
+    </index>
+    <index name="FK_community_site_spec_levels_idx">
+      <index-column name="spec_level_id"/>
+    </index>
+    <index name="FK_site_sitehold_reason_idx">
+      <index-column name="hold_reason_id"/>
+    </index>
+    <index name="FK_site_pricing_group_idx">
+      <index-column name="pricing_group_id"/>
+    </index>
+    <index name="FK_site_contract_idx">
+      <index-column name="contract_id"/>
+    </index>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="community_site_incl_feature" idMethod="native" phpName="CommunitySiteInclFeature">
+    <column name="site_incl_id" phpName="SiteInclId" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="site_id" phpName="SiteId" type="INTEGER" sqlType="int(11) unsigned" required="true"/>
+    <column name="im_code" phpName="ImCode" type="VARCHAR" size="12"/>
+    <column name="rank" phpName="Rank" type="INTEGER"/>
+    <column name="acl" phpName="Acl" type="INTEGER"/>
+    <column name="description" phpName="Description" type="LONGVARCHAR"/>
+    <column name="date_created" phpName="DateCreated" type="TIMESTAMP"/>
+    <column name="date_last_modified" phpName="DateLastModified" type="TIMESTAMP"/>
+    <column name="modified_by" phpName="ModifiedBy" type="INTEGER"/>
+    <column name="show_on_selections" phpName="ShowOnSelections" type="INTEGER" size="1" defaultValue="0"/>
+    <foreign-key foreignTable="community_site" name="FK_community_site_incl_feature_community_site">
+      <reference local="site_id" foreign="site_id"/>
+    </foreign-key>
+    <index name="FK_community_site_incl_feature_community_site_idx">
+      <index-column name="site_id"/>
+    </index>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="community_site_inventory" idMethod="native" phpName="CommunitySiteInventory">
+    <column name="site_id" phpName="SiteId" type="INTEGER" sqlType="int(11) unsigned" primaryKey="true" required="true"/>
+    <column name="job_number" phpName="JobNumber" type="VARCHAR" size="12"/>
+    <column name="site_number" phpName="SiteNumber" type="VARCHAR" size="12"/>
+    <column name="Division" phpName="Division" type="VARCHAR" size="5"/>
+    <column name="Project" phpName="Project" type="VARCHAR" size="6"/>
+    <column name="Purchase_Date" phpName="PurchaseDate" type="DATE"/>
+    <column name="MortgageRelease" phpName="Mortgagerelease" type="INTEGER" size="1"/>
+    <column name="vendor_id" phpName="VendorId" type="VARCHAR" size="5"/>
+    <column name="vendor_name" phpName="VendorName" type="VARCHAR" size="32"/>
+    <column name="site_cost" phpName="SiteCost" type="FLOAT"/>
+    <column name="site_selling_price" phpName="SiteSellingPrice" type="FLOAT"/>
+    <column name="site_margin_factor" phpName="SiteMarginFactor" type="FLOAT"/>
+    <column name="Permit_Application" phpName="PermitApplication" type="DATE"/>
+    <column name="Permit_Received" phpName="PermitReceived" type="DATE"/>
+    <column name="released_for_sale" phpName="ReleasedForSale" type="DATE"/>
+    <column name="PlannedEDI" phpName="Plannededi" type="FLOAT"/>
+    <column name="garage_premium" phpName="GaragePremium" type="FLOAT"/>
+    <column name="walk_out_premium" phpName="WalkOutPremium" type="FLOAT"/>
+    <column name="Credit" phpName="Credit" type="FLOAT"/>
+    <column name="check_number" phpName="CheckNumber" type="VARCHAR" size="11"/>
+    <column name="site_rating" phpName="SiteRating" type="INTEGER" size="2"/>
+    <column name="view_premium" phpName="ViewPremium" type="FLOAT"/>
+    <column name="Community" phpName="Community" type="VARCHAR" size="3"/>
+    <column name="CommunityFiller" phpName="Communityfiller" type="VARCHAR" size="1"/>
+    <column name="DeedRequestPrepared" phpName="Deedrequestprepared" type="INTEGER" size="1"/>
+    <column name="SiteCostAdjustment" phpName="Sitecostadjustment" type="FLOAT"/>
+    <column name="fee1" phpName="Fee1" type="FLOAT"/>
+    <column name="fee1_app_sca" phpName="Fee1AppSca" type="BOOLEAN" size="1" sqlType="tinyint(1) unsigned"/>
+    <column name="fee2" phpName="Fee2" type="FLOAT"/>
+    <column name="fee2_app_sca" phpName="Fee2AppSca" type="BOOLEAN" size="1" sqlType="tinyint(1) unsigned"/>
+    <column name="fee3" phpName="Fee3" type="FLOAT"/>
+    <column name="fee3_app_sca" phpName="Fee3AppSca" type="BOOLEAN" size="1" sqlType="tinyint(1) unsigned"/>
+    <column name="fee4" phpName="Fee4" type="FLOAT"/>
+    <column name="fee4_app_sca" phpName="Fee4AppSca" type="BOOLEAN" size="1" sqlType="tinyint(1) unsigned"/>
+    <column name="AddFeeAtClosing" phpName="Addfeeatclosing" type="FLOAT"/>
+    <column name="EstAddFeeAtClose" phpName="Estaddfeeatclose" type="FLOAT"/>
+    <column name="lopt_record_id" phpName="LoptRecordId" type="INTEGER" sqlType="int(11) unsigned" required="true" defaultValue="0"/>
+    <foreign-key foreignTable="community_site" name="FK_community_site_community_site_inventory">
+      <reference local="site_id" foreign="site_id"/>
+    </foreign-key>
+    <index name="job_number">
+      <index-column name="job_number"/>
+    </index>
+    <index name="site_number">
+      <index-column name="site_number"/>
+    </index>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="community_site_limitation" idMethod="native" phpName="CommunitySiteLimitation">
+    <column name="site_limit_id" phpName="SiteLimitId" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="site_id" phpName="SiteId" type="INTEGER" sqlType="int(11) unsigned" required="true" defaultValue="0"/>
+    <column name="site_limit_desc_id" phpName="SiteLimitDescId" type="INTEGER"/>
+    <column name="date_created" phpName="DateCreated" type="TIMESTAMP"/>
+    <column name="created_by" phpName="CreatedBy" type="INTEGER" defaultValue="0"/>
+    <column name="last_modified_date" phpName="LastModifiedDate" type="TIMESTAMP"/>
+    <column name="modified_by" phpName="ModifiedBy" type="INTEGER"/>
+    <foreign-key foreignTable="community_site" name="FK_community_site_limitation_community_site">
+      <reference local="site_id" foreign="site_id"/>
+    </foreign-key>
+    <index name="FK_community_site_limitation_community_site_idx">
+      <index-column name="site_id"/>
+    </index>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="community_site_limitation_desc" idMethod="native" phpName="CommunitySiteLimitationDesc">
+    <column name="desc_id" phpName="DescId" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="desc_name" phpName="DescName" type="VARCHAR" size="128" required="true"/>
+    <column name="desc_description" phpName="DescDescription" type="LONGVARCHAR" required="true"/>
+    <column name="date_created" phpName="DateCreated" type="TIMESTAMP" required="true"/>
+    <column name="created_id" phpName="CreatedId" type="INTEGER" required="true"/>
+    <column name="date_modified" phpName="DateModified" type="TIMESTAMP" required="true"/>
+    <column name="modified_id" phpName="ModifiedId" type="INTEGER" required="true"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="community_site_plan_availability" idMethod="native" phpName="CommunitySitePlanAvailability">
+    <column name="site_plan_av_id" phpName="SitePlanAvId" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="site_id" phpName="SiteId" type="INTEGER" sqlType="int(11) unsigned" required="true"/>
+    <column name="plan_master" phpName="PlanMaster" type="VARCHAR" size="5"/>
+    <column name="garage_location" phpName="GarageLocation" type="VARCHAR" size="11"/>
+    <column name="garage_entry" phpName="GarageEntry" type="VARCHAR" size="6"/>
+    <column name="rear_exit" phpName="RearExit" type="VARCHAR" size="6"/>
+    <column name="date_created" phpName="DateCreated" type="TIMESTAMP"/>
+    <column name="created_by" phpName="CreatedBy" type="INTEGER"/>
+    <column name="last_modified_date" phpName="LastModifiedDate" type="TIMESTAMP"/>
+    <column name="modified_by" phpName="ModifiedBy" type="INTEGER"/>
+    <foreign-key foreignTable="community_site" name="FK_community_site_plan_availability_community_site">
+      <reference local="site_id" foreign="site_id"/>
+    </foreign-key>
+    <index name="FK_community_site_plan_availability_community_site_idx">
+      <index-column name="site_id"/>
+    </index>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="community_site_plan_base_Invest" idMethod="native" phpName="CommunitySitePlanBaseInvest">
+    <column name="spbi_id" phpName="SpbiId" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="site_id" phpName="SiteId" type="INTEGER" sqlType="int(11) unsigned" required="true"/>
+    <column name="plan_master" phpName="PlanMaster" type="VARCHAR" size="5"/>
+    <column name="elevation" phpName="Elevation" type="VARCHAR" size="6"/>
+    <column name="im_code" phpName="ImCode" type="VARCHAR" size="12"/>
+    <column name="cost" phpName="Cost" type="DOUBLE" size="8" scale="2"/>
+    <column name="effective_date" phpName="EffectiveDate" type="DATE"/>
+    <column name="date_created" phpName="DateCreated" type="TIMESTAMP"/>
+    <column name="created_by" phpName="CreatedBy" type="INTEGER"/>
+    <column name="last_modified" phpName="LastModified" type="TIMESTAMP"/>
+    <column name="modified_by" phpName="ModifiedBy" type="INTEGER"/>
+    <foreign-key foreignTable="community_site" name="FK_community_site_plan_base_invest">
+      <reference local="site_id" foreign="site_id"/>
+    </foreign-key>
+    <index name="FK_community_site_plan_base_invest_idx">
+      <index-column name="site_id"/>
+    </index>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="company" idMethod="native" phpName="Company">
+    <column name="company_id" phpName="CompanyId" type="INTEGER" sqlType="int(11) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="short_name" phpName="ShortName" type="VARCHAR" size="45"/>
+    <column name="full_name" phpName="FullName" type="VARCHAR" size="255"/>
+    <column name="created_by" phpName="CreatedBy" type="INTEGER" sqlType="int(11) unsigned"/>
+    <column name="created_date" phpName="CreatedDate" type="TIMESTAMP"/>
+    <column name="last_modified_by" phpName="LastModifiedBy" type="INTEGER" sqlType="int(11) unsigned"/>
+    <column name="last_modified_date" phpName="LastModifiedDate" type="TIMESTAMP"/>
+    <column name="is_deleted" phpName="IsDeleted" type="BOOLEAN" size="1" sqlType="tinyint(1) unsigned" required="true" defaultValue="false"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="configuration" idMethod="native" phpName="Configuration">
+    <column name="id" phpName="Id" type="INTEGER" size="10" sqlType="int(10) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="key" phpName="Key" type="VARCHAR" size="45" required="true"/>
+    <column name="value" phpName="Value" type="LONGVARCHAR"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="contract" idMethod="native" phpName="Contract">
+    <column name="contract_id" phpName="ContractId" type="INTEGER" sqlType="int(11) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="name" phpName="Name" type="VARCHAR" size="255"/>
+    <column name="description" phpName="Description" type="VARCHAR" size="255"/>
+    <column name="created_by" phpName="CreatedBy" type="INTEGER" sqlType="int(11) unsigned"/>
+    <column name="created_date" phpName="CreatedDate" type="TIMESTAMP"/>
+    <column name="last_modified_by" phpName="LastModifiedBy" type="INTEGER" sqlType="int(11) unsigned"/>
+    <column name="last_modified_date" phpName="LastModifiedDate" type="TIMESTAMP"/>
+    <column name="is_deleted" phpName="IsDeleted" type="BOOLEAN" size="1" sqlType="tinyint(1) unsigned" required="true" defaultValue="false"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="dashboard" idMethod="native" phpName="Dashboard">
+    <column name="dashboard_id" phpName="DashboardId" type="INTEGER" sqlType="int(11) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="name" phpName="Name" type="VARCHAR" size="255"/>
+    <column name="description" phpName="Description" type="VARCHAR" size="255"/>
+    <column name="created_by" phpName="CreatedBy" type="INTEGER" sqlType="int(11) unsigned"/>
+    <column name="created_date" phpName="CreatedDate" type="TIMESTAMP"/>
+    <column name="last_modified_by" phpName="LastModifiedBy" type="INTEGER" sqlType="int(11) unsigned"/>
+    <column name="last_modified_date" phpName="LastModifiedDate" type="TIMESTAMP"/>
+    <column name="is_deleted" phpName="IsDeleted" type="BOOLEAN" size="1" sqlType="tinyint(1) unsigned" required="true" defaultValue="false"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="dashboard_role" idMethod="native" phpName="DashboardRole">
+    <column name="dashboard_role_id" phpName="DashboardRoleId" type="INTEGER" sqlType="int(11) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="dashboard_id" phpName="DashboardId" type="INTEGER" sqlType="int(11) unsigned" required="true"/>
+    <column name="role_id" phpName="RoleId" type="INTEGER" sqlType="int(11) unsigned" required="true"/>
+    <column name="created_by" phpName="CreatedBy" type="INTEGER" sqlType="int(11) unsigned"/>
+    <column name="created_date" phpName="CreatedDate" type="TIMESTAMP"/>
+    <column name="last_modified_by" phpName="LastModifiedBy" type="INTEGER" sqlType="int(11) unsigned"/>
+    <column name="last_modified_date" phpName="LastModifiedDate" type="TIMESTAMP"/>
+    <column name="is_deleted" phpName="IsDeleted" type="BOOLEAN" size="1" sqlType="tinyint(1) unsigned" required="true" defaultValue="false"/>
+    <column name="default" phpName="Default" type="BOOLEAN" size="1" sqlType="tinyint(1) unsigned" required="true" defaultValue="false"/>
+    <foreign-key foreignTable="dashboard" name="FK_dashboard_role_dashboard">
+      <reference local="dashboard_id" foreign="dashboard_id"/>
+    </foreign-key>
+    <foreign-key foreignTable="role" name="FK_dashboard_role_role">
+      <reference local="role_id" foreign="role_id"/>
+    </foreign-key>
+    <index name="FK_dashboard_role_dashboard_id_idx">
+      <index-column name="dashboard_id"/>
+    </index>
+    <index name="FK_dashboard_role_role_idx">
+      <index-column name="role_id"/>
+    </index>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="division" idMethod="native" phpName="Division">
+    <column name="division_id" phpName="DivisionId" type="INTEGER" primaryKey="true" required="true"/>
+    <column name="region_id" phpName="RegionId" type="INTEGER" required="true"/>
+    <column name="record_id" phpName="RecordId" type="INTEGER" size="4"/>
+    <column name="division" phpName="Division" type="VARCHAR" size="5"/>
+    <column name="division_name" phpName="DivisionName" type="VARCHAR" size="55"/>
+    <column name="user_id" phpName="UserId" type="INTEGER"/>
+    <column name="last_modified" phpName="LastModified" type="TIMESTAMP"/>
+    <column name="expense_percentage" phpName="ExpensePercentage" type="FLOAT"/>
+    <column name="processing_code" phpName="ProcessingCode" type="VARCHAR" size="6"/>
+    <column name="active" phpName="Active" type="INTEGER" size="1"/>
+    <column name="clos_rebate_avail" phpName="ClosRebateAvail" type="INTEGER" size="1"/>
+    <column name="clos_rebate_amt" phpName="ClosRebateAmt" type="FLOAT"/>
+    <column name="clos_rebate_acct" phpName="ClosRebateAcct" type="VARCHAR" size="25"/>
+    <column name="init_rebate_avail" phpName="InitRebateAvail" type="INTEGER" size="1"/>
+    <column name="init_rebate_amt" phpName="InitRebateAmt" type="FLOAT"/>
+    <column name="init_rebate_acct" phpName="InitRebateAcct" type="VARCHAR" size="25"/>
+    <column name="final_rebate_avail" phpName="FinalRebateAvail" type="INTEGER" size="1"/>
+    <column name="final_rebate_amt" phpName="FinalRebateAmt" type="FLOAT"/>
+    <column name="final_rebate_acct" phpName="FinalRebateAcct" type="VARCHAR" size="25"/>
+    <index name="division">
+      <index-column name="division"/>
+    </index>
+    <index name="region_id">
+      <index-column name="region_id"/>
+    </index>
+    <index name="record_id">
+      <index-column name="record_id"/>
+    </index>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="escalator" idMethod="native" phpName="Escalator">
+    <column name="escalator_id" phpName="EscalatorId" type="INTEGER" sqlType="int(11) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="name" phpName="Name" type="VARCHAR" size="35"/>
+    <column name="description" phpName="Description" type="VARCHAR" size="255"/>
+    <column name="created_by" phpName="CreatedBy" type="INTEGER" sqlType="int(11) unsigned"/>
+    <column name="created_date" phpName="CreatedDate" type="TIMESTAMP"/>
+    <column name="last_modified_by" phpName="LastModifiedBy" type="INTEGER" sqlType="int(11) unsigned"/>
+    <column name="last_modified_date" phpName="LastModifiedDate" type="TIMESTAMP"/>
+    <column name="is_deleted" phpName="IsDeleted" type="BOOLEAN" size="1" sqlType="tinyint(1) unsigned" required="true" defaultValue="false"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="escalator_condition" idMethod="native" phpName="EscalatorCondition">
+    <column name="escalator_condition_id" phpName="EscalatorConditionId" type="INTEGER" sqlType="int(11) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="escalator_id" phpName="EscalatorId" type="INTEGER" sqlType="int(11) unsigned" required="true"/>
+    <column name="name" phpName="Name" type="VARCHAR" size="35"/>
+    <column name="description" phpName="Description" type="VARCHAR" size="255"/>
+    <column name="target_date" phpName="TargetDate" type="VARCHAR" size="255"/>
+    <column name="target_lots" phpName="TargetLots" type="LONGVARCHAR"/>
+    <column name="is_percentage" phpName="IsPercentage" type="BOOLEAN" size="1" sqlType="tinyint(1) unsigned" required="true" defaultValue="false"/>
+    <column name="amount" phpName="Amount" type="INTEGER" sqlType="int(11) unsigned"/>
+    <column name="created_by" phpName="CreatedBy" type="INTEGER" sqlType="int(11) unsigned"/>
+    <column name="created_date" phpName="CreatedDate" type="TIMESTAMP"/>
+    <column name="last_modified_by" phpName="LastModifiedBy" type="INTEGER" sqlType="int(11) unsigned"/>
+    <column name="last_modified_date" phpName="LastModifiedDate" type="TIMESTAMP"/>
+    <column name="is_deleted" phpName="IsDeleted" type="BOOLEAN" size="1" sqlType="tinyint(1) unsigned" required="true" defaultValue="false"/>
+    <foreign-key foreignTable="escalator" name="FK_condition_escalator">
+      <reference local="escalator_id" foreign="escalator_id"/>
+    </foreign-key>
+    <index name="FK_condition_escalator_idx">
+      <index-column name="escalator_id"/>
+    </index>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="limitation" idMethod="native" phpName="Limitation">
+    <column name="limitation_id" phpName="LimitationId" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="code" phpName="Code" type="INTEGER" size="10" sqlType="int(10) unsigned" required="true"/>
+    <column name="name" phpName="Name" type="LONGVARCHAR"/>
+    <column name="description" phpName="Description" type="LONGVARCHAR"/>
+    <column name="created_by" phpName="CreatedBy" type="INTEGER" required="true"/>
+    <column name="created_date" phpName="CreatedDate" type="TIMESTAMP" required="true" defaultValue="0000-00-00 00:00:00"/>
+    <column name="last_modified_by" phpName="LastModifiedBy" type="INTEGER" required="true"/>
+    <column name="last_modified_date" phpName="LastModifiedDate" type="TIMESTAMP" required="true" defaultExpr="CURRENT_TIMESTAMP"/>
+    <column name="is_deleted" phpName="IsDeleted" type="BOOLEAN" size="1" required="true" defaultValue="false"/>
+    <unique name="code">
+      <unique-column name="code"/>
+    </unique>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="limitation_type" idMethod="native" phpName="LimitationType">
+    <column name="limitation_type_id" phpName="LimitationTypeId" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="limitation_type" phpName="LimitationType" type="VARCHAR" size="25" required="true"/>
+    <column name="created_by" phpName="CreatedBy" type="INTEGER" required="true"/>
+    <column name="created_date" phpName="CreatedDate" type="TIMESTAMP" required="true" defaultValue="0000-00-00 00:00:00"/>
+    <column name="last_modified_by" phpName="LastModifiedBy" type="INTEGER" required="true"/>
+    <column name="last_modified_date" phpName="LastModifiedDate" type="TIMESTAMP" required="true" defaultExpr="CURRENT_TIMESTAMP"/>
+    <column name="is_deleted" phpName="IsDeleted" type="BOOLEAN" size="1" required="true" defaultValue="false"/>
+    <unique name="limitation_type">
+      <unique-column name="limitation_type"/>
+    </unique>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="mortgage" idMethod="native" phpName="Mortgage">
+    <column name="mortgage_id" phpName="MortgageId" type="INTEGER" sqlType="int(11) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="legalsection_id" phpName="LegalsectionId" type="INTEGER" sqlType="int(11) unsigned" required="true"/>
+    <column name="info" phpName="Info" type="VARCHAR" size="100"/>
+    <column name="book" phpName="Book" type="VARCHAR" size="60"/>
+    <column name="page" phpName="Page" type="VARCHAR" size="25"/>
+    <column name="amount" phpName="Amount" type="DOUBLE"/>
+    <column name="date" phpName="Date" type="TIMESTAMP"/>
+    <column name="rel_date" phpName="RelDate" type="TIMESTAMP"/>
+    <column name="created_by" phpName="CreatedBy" type="INTEGER" sqlType="int(11) unsigned"/>
+    <column name="created_date" phpName="CreatedDate" type="TIMESTAMP"/>
+    <column name="last_modified_by" phpName="LastModifiedBy" type="INTEGER" sqlType="int(11) unsigned"/>
+    <column name="last_modified_date" phpName="LastModifiedDate" type="TIMESTAMP"/>
+    <column name="is_deleted" phpName="IsDeleted" type="BOOLEAN" size="1" sqlType="tinyint(1) unsigned" required="true" defaultValue="false"/>
+    <foreign-key foreignTable="community_section_legal" name="FK_mortgage_legalsection">
+      <reference local="legalsection_id" foreign="legal_section_id"/>
+    </foreign-key>
+    <index name="FK_mortgage_legalsection_idx">
+      <index-column name="legalsection_id"/>
+    </index>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="pervasivemap_field" idMethod="native" phpName="PervasivemapField">
+    <column name="id" phpName="Id" type="INTEGER" size="10" sqlType="int(10) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="pervasivemap_table_id" phpName="PervasivemapTableId" type="INTEGER" sqlType="int(11) unsigned" required="true"/>
+    <column name="name" phpName="Name" type="VARCHAR" size="255" required="true"/>
+    <column name="pervasive_table" phpName="PervasiveTable" type="VARCHAR" size="255"/>
+    <column name="pervasive_field" phpName="PervasiveField" type="VARCHAR" size="255"/>
+    <column name="pervasive_type" phpName="PervasiveType" type="VARCHAR" size="255"/>
+    <column name="pervasive_value" phpName="PervasiveValue" type="VARCHAR" size="255"/>
+    <foreign-key foreignTable="pervasivemap_table" name="fk_pervasive_table">
+      <reference local="pervasivemap_table_id" foreign="id"/>
+    </foreign-key>
+    <index name="fk_pervasive_table_idx">
+      <index-column name="pervasivemap_table_id"/>
+    </index>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="pervasivemap_pervasivetable" idMethod="native" phpName="PervasivemapPervasivetable">
+    <column name="id" phpName="Id" type="INTEGER" sqlType="int(11) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="name" phpName="Name" type="VARCHAR" size="255" required="true"/>
+    <column name="key_fields" phpName="KeyFields" type="VARCHAR" size="255"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="pervasivemap_table" idMethod="native" phpName="PervasivemapTable">
+    <column name="id" phpName="Id" type="INTEGER" sqlType="int(11) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="name" phpName="Name" type="VARCHAR" size="255" required="true"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="pricing_group" idMethod="native" phpName="PricingGroup">
+    <column name="pricing_group_id" phpName="PricingGroupId" type="INTEGER" sqlType="int(11) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="name" phpName="Name" type="VARCHAR" size="45" required="true"/>
+    <column name="description" phpName="Description" type="VARCHAR" size="255"/>
+    <column name="created_by" phpName="CreatedBy" type="INTEGER" sqlType="int(11) unsigned"/>
+    <column name="created_date" phpName="CreatedDate" type="TIMESTAMP"/>
+    <column name="last_modified_by" phpName="LastModifiedBy" type="INTEGER" sqlType="int(11) unsigned"/>
+    <column name="last_modified_date" phpName="LastModifiedDate" type="TIMESTAMP"/>
+    <column name="is_deleted" phpName="IsDeleted" type="BOOLEAN" size="1" sqlType="tinyint(1) unsigned" required="true" defaultValue="false"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="ref_limitation" idMethod="native" phpName="RefLimitation">
+    <column name="ref_limitations_id" phpName="RefLimitationsId" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="limitation_id" phpName="LimitationId" type="INTEGER" required="true"/>
+    <column name="limitation_type_id" phpName="LimitationTypeId" type="INTEGER" required="true"/>
+    <column name="community_id" phpName="CommunityId" type="INTEGER"/>
+    <column name="fischer_section_id" phpName="FischerSectionId" type="INTEGER"/>
+    <column name="legal_section_id" phpName="LegalSectionId" type="INTEGER"/>
+    <column name="site_id" phpName="SiteId" type="INTEGER" sqlType="int(11) unsigned"/>
+    <column name="created_by" phpName="CreatedBy" type="INTEGER" required="true"/>
+    <column name="created_date" phpName="CreatedDate" type="TIMESTAMP" required="true" defaultValue="0000-00-00 00:00:00"/>
+    <column name="last_modified_by" phpName="LastModifiedBy" type="INTEGER" required="true"/>
+    <column name="last_modified_date" phpName="LastModifiedDate" type="TIMESTAMP" required="true" defaultExpr="CURRENT_TIMESTAMP"/>
+    <column name="is_deleted" phpName="IsDeleted" type="BOOLEAN" size="1" required="true" defaultValue="false"/>
+    <foreign-key foreignTable="community_site" name="FK_ref_limitation_community_site">
+      <reference local="site_id" foreign="site_id"/>
+    </foreign-key>
+    <foreign-key foreignTable="limitation" name="FK_ref_limitation_limitation">
+      <reference local="limitation_id" foreign="limitation_id"/>
+    </foreign-key>
+    <foreign-key foreignTable="limitation_type" name="FK_ref_limitation_limitation_type">
+      <reference local="limitation_type_id" foreign="limitation_type_id"/>
+    </foreign-key>
+    <foreign-key foreignTable="users" name="FK_ref_limitation_users_created">
+      <reference local="created_by" foreign="id"/>
+    </foreign-key>
+    <foreign-key foreignTable="users" name="FK_ref_limitation_users_modified">
+      <reference local="last_modified_by" foreign="id"/>
+    </foreign-key>
+    <index name="FK_ref_limitation_limitation_type">
+      <index-column name="limitation_type_id"/>
+    </index>
+    <index name="FK_ref_limitation_community_site">
+      <index-column name="site_id"/>
+    </index>
+    <index name="FK_ref_limitation_users_modified">
+      <index-column name="last_modified_by"/>
+    </index>
+    <index name="FK_ref_limitation_users_created">
+      <index-column name="created_by"/>
+    </index>
+    <unique name="Ref_Limitations_Unique">
+      <unique-column name="limitation_id"/>
+      <unique-column name="limitation_type_id"/>
+      <unique-column name="community_id"/>
+      <unique-column name="site_id"/>
+    </unique>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="region" idMethod="native" phpName="Region">
+    <column name="region_id" phpName="RegionId" type="INTEGER" size="4" primaryKey="true" required="true"/>
+    <column name="region" phpName="Region" type="VARCHAR" size="50"/>
+    <column name="created_date" phpName="CreatedDate" type="TIMESTAMP"/>
+    <column name="created_by" phpName="CreatedBy" type="VARCHAR" size="20"/>
+    <column name="last_modified" phpName="LastModified" type="TIMESTAMP"/>
+    <column name="user_id" phpName="UserId" type="VARCHAR" size="20"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="role" idMethod="native" phpName="Role">
+    <column name="role_id" phpName="RoleId" type="INTEGER" sqlType="int(11) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="name" phpName="Name" type="VARCHAR" size="35"/>
+    <column name="description" phpName="Description" type="VARCHAR" size="255"/>
+    <column name="created_by" phpName="CreatedBy" type="INTEGER" sqlType="int(11) unsigned"/>
+    <column name="created_date" phpName="CreatedDate" type="TIMESTAMP"/>
+    <column name="last_modified_by" phpName="LastModifiedBy" type="INTEGER" sqlType="int(11) unsigned"/>
+    <column name="last_modified_date" phpName="LastModifiedDate" type="TIMESTAMP"/>
+    <column name="is_deleted" phpName="IsDeleted" type="BOOLEAN" size="1" sqlType="tinyint(1) unsigned" required="true" defaultValue="false"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="site_limitation" idMethod="native" phpName="SiteLimitation">
+    <column name="site_limitation_id" phpName="SiteLimitationId" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="site_limitaiton_code" phpName="SiteLimitaitonCode" type="VARCHAR" size="45" required="true"/>
+    <column name="site_limit_description" phpName="SiteLimitDescription" type="LONGVARCHAR"/>
+    <column name="date_created" phpName="DateCreated" type="TIMESTAMP"/>
+    <column name="last_modified_date" phpName="LastModifiedDate" type="TIMESTAMP"/>
+    <column name="modified_by" phpName="ModifiedBy" type="VARCHAR" size="100"/>
+    <column name="site_limit_desc1" phpName="SiteLimitDesc1" type="LONGVARCHAR"/>
+    <column name="site_limit_desc2" phpName="SiteLimitDesc2" type="LONGVARCHAR"/>
+    <column name="site_limit_desc3" phpName="SiteLimitDesc3" type="LONGVARCHAR"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="site_mortgage_ammendment" idMethod="native" phpName="SiteMortgageAmmendment">
+    <column name="sitemortgageammendment_id" phpName="SitemortgageammendmentId" type="INTEGER" sqlType="int(11) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="site_id" phpName="SiteId" type="INTEGER" sqlType="int(11) unsigned" required="true"/>
+    <column name="ammendment_number" phpName="AmmendmentNumber" type="VARCHAR" size="20"/>
+    <column name="request_date" phpName="RequestDate" type="TIMESTAMP"/>
+    <column name="received_date" phpName="ReceivedDate" type="TIMESTAMP"/>
+    <column name="recorded_date" phpName="RecordedDate" type="TIMESTAMP"/>
+    <column name="release_date" phpName="ReleaseDate" type="TIMESTAMP"/>
+    <column name="lender" phpName="Lender" type="VARCHAR" size="100"/>
+    <column name="created_by" phpName="CreatedBy" type="INTEGER" sqlType="int(11) unsigned"/>
+    <column name="created_date" phpName="CreatedDate" type="TIMESTAMP"/>
+    <column name="last_modified_by" phpName="LastModifiedBy" type="INTEGER" sqlType="int(11) unsigned"/>
+    <column name="last_modified_date" phpName="LastModifiedDate" type="TIMESTAMP"/>
+    <foreign-key foreignTable="community_site" name="FK_site_mortgage_ammendment_Site">
+      <reference local="site_id" foreign="site_id"/>
+    </foreign-key>
+    <index name="FK_site_mortgage_ammendment_Site_idx">
+      <index-column name="site_id"/>
+    </index>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="sitehold_history" idMethod="native" phpName="SiteholdHistory">
+    <column name="sitehold_history_id" phpName="SiteholdHistoryId" type="INTEGER" sqlType="int(11) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="site_id" phpName="SiteId" type="INTEGER" sqlType="int(11) unsigned" required="true"/>
+    <column name="sitehold_reason_id" phpName="SiteholdReasonId" type="INTEGER" sqlType="int(11) unsigned" required="true"/>
+    <column name="vendor_id" phpName="VendorId" type="VARCHAR" size="5"/>
+    <column name="hold_date" phpName="HoldDate" type="TIMESTAMP"/>
+    <column name="hold_control_code" phpName="HoldControlCode" type="VARCHAR" size="8"/>
+    <column name="hold_deposit" phpName="HoldDeposit" type="FLOAT"/>
+    <column name="hold_notes" phpName="HoldNotes" type="VARCHAR" size="255"/>
+    <column name="archived_date" phpName="ArchivedDate" type="TIMESTAMP"/>
+    <column name="created_by" phpName="CreatedBy" type="INTEGER" sqlType="int(11) unsigned"/>
+    <column name="created_date" phpName="CreatedDate" type="TIMESTAMP"/>
+    <column name="last_modified_by" phpName="LastModifiedBy" type="INTEGER" sqlType="int(11) unsigned"/>
+    <column name="last_modified_date" phpName="LastModifiedDate" type="TIMESTAMP"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="sitehold_reason" idMethod="native" phpName="SiteholdReason">
+    <column name="sitehold_reason_id" phpName="SiteholdReasonId" type="INTEGER" sqlType="int(11) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="description" phpName="Description" type="LONGVARCHAR"/>
+    <column name="created_by" phpName="CreatedBy" type="INTEGER" sqlType="int(11) unsigned"/>
+    <column name="created_date" phpName="CreatedDate" type="TIMESTAMP"/>
+    <column name="last_modified_by" phpName="LastModifiedBy" type="INTEGER" sqlType="int(11) unsigned"/>
+    <column name="last_modified_date" phpName="LastModifiedDate" type="TIMESTAMP"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="spec_levels" idMethod="native" phpName="SpecLevels">
+    <column name="spec_level_id" phpName="SpecLevelId" type="INTEGER" sqlType="int(11) unsigned" primaryKey="true" required="true"/>
+    <column name="spec_level_descr" phpName="SpecLevelDescr" type="VARCHAR" size="35"/>
+    <column name="comments" phpName="Comments" type="VARCHAR" size="255"/>
+    <column name="user_id" phpName="UserId" type="VARCHAR" size="20"/>
+    <column name="last_modified" phpName="LastModified" type="DATE"/>
+    <column name="process_discount" phpName="ProcessDiscount" type="FLOAT"/>
+    <column name="proc_disc_days_allwd" phpName="ProcDiscDaysAllwd" type="INTEGER" size="2"/>
+    <column name="spec_level_abrv" phpName="SpecLevelAbrv" type="VARCHAR" size="7"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="system_sync" idMethod="native" phpName="SystemSync">
+    <column name="id" phpName="Id" type="INTEGER" size="10" sqlType="int(10) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="system" phpName="System" type="VARCHAR" size="45"/>
+    <column name="application" phpName="Application" type="VARCHAR" size="255"/>
+    <column name="pervasive_database" phpName="PervasiveDatabase" type="VARCHAR" size="255"/>
+    <column name="pervasive_table" phpName="PervasiveTable" type="VARCHAR" size="255"/>
+    <column name="action" phpName="Action" type="VARCHAR" size="255"/>
+    <column name="key_fields" phpName="KeyFields" type="VARCHAR" size="255"/>
+    <column name="data" phpName="Data" type="LONGVARCHAR"/>
+    <column name="created_date" phpName="CreatedDate" type="TIMESTAMP"/>
+    <column name="is_processed" phpName="IsProcessed" type="BOOLEAN" size="1" sqlType="tinyint(1) unsigned" required="true" defaultValue="false"/>
+    <column name="is_errored" phpName="IsErrored" type="BOOLEAN" size="1" sqlType="tinyint(1) unsigned" required="true" defaultValue="false"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="users" idMethod="native" phpName="Users">
+    <column name="id" phpName="Id" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="fischer_username" phpName="FischerUsername" type="VARCHAR" size="256" required="true"/>
+    <column name="active_directory_username" phpName="ActiveDirectoryUsername" type="VARCHAR" size="255"/>
+    <column name="sapphire_user_id" phpName="SapphireUserId" type="INTEGER" sqlType="int(11) unsigned"/>
+    <column name="role_id" phpName="RoleId" type="INTEGER" sqlType="int(11) unsigned"/>
+    <column name="email" phpName="Email" type="VARCHAR" size="256" required="true"/>
+    <column name="password" phpName="Password" type="VARCHAR" size="256"/>
+    <column name="name" phpName="Name" type="VARCHAR" size="256"/>
+    <column name="first_name" phpName="FirstName" type="VARCHAR" size="256"/>
+    <column name="last_name" phpName="LastName" type="VARCHAR" size="256"/>
+    <column name="groups" phpName="Groups" type="LONGVARCHAR"/>
+    <column name="groups_count" phpName="GroupsCount" type="INTEGER" size="4" defaultValue="0"/>
+    <column name="division" phpName="Division" type="VARCHAR" size="50"/>
+    <column name="employee_id" phpName="EmployeeId" type="VARCHAR" size="50"/>
+    <column name="access" phpName="Access" type="VARCHAR" size="50"/>
+    <column name="is_enabled" phpName="IsEnabled" type="TINYINT" required="true" defaultValue="0"/>
+    <column name="created" phpName="Created" type="TIMESTAMP" required="true"/>
+    <column name="last_updated" phpName="LastUpdated" type="TIMESTAMP" required="true" defaultExpr="CURRENT_TIMESTAMP"/>
+    <foreign-key foreignTable="role" name="FK_users_role">
+      <reference local="role_id" foreign="role_id"/>
+    </foreign-key>
+    <index name="FK_users_roles_idx">
+      <index-column name="role_id"/>
+    </index>
+    <unique name="email">
+      <unique-column name="email"/>
+    </unique>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="vendor" idMethod="native" phpName="Vendor">
+    <column name="vendor_record_id" phpName="VendorRecordId" type="INTEGER" primaryKey="true" required="true"/>
+    <column name="vendor_id" phpName="VendorId" type="VARCHAR" size="5"/>
+    <column name="name" phpName="Name" type="VARCHAR" size="31"/>
+    <column name="address_1" phpName="Address1" type="VARCHAR" size="51"/>
+    <column name="address_2" phpName="Address2" type="VARCHAR" size="51"/>
+    <column name="city" phpName="City" type="VARCHAR" size="51"/>
+    <column name="state" phpName="State" type="VARCHAR" size="2"/>
+    <column name="zip" phpName="Zip" type="VARCHAR" size="11"/>
+    <column name="vendor_status" phpName="VendorStatus" type="INTEGER" size="1"/>
+    <column name="hold_status" phpName="HoldStatus" type="INTEGER" size="1"/>
+    <column name="hold_reason" phpName="HoldReason" type="VARCHAR" size="51"/>
+    <column name="hold_date" phpName="HoldDate" type="VARCHAR" size="8"/>
+    <column name="hold_by_whom" phpName="HoldByWhom" type="VARCHAR" size="4"/>
+    <column name="ytd_payments" phpName="YtdPayments" type="FLOAT"/>
+    <column name="ytd_po" phpName="YtdPo" type="FLOAT"/>
+    <column name="scope_work_agree" phpName="ScopeWorkAgree" type="VARCHAR" size="8"/>
+    <column name="contract_expires" phpName="ContractExpires" type="VARCHAR" size="8"/>
+    <column name="lead_time" phpName="LeadTime" type="INTEGER" size="4"/>
+    <column name="ky_affirm_letter" phpName="KyAffirmLetter" type="VARCHAR" size="8"/>
+    <column name="workers_comp_exp" phpName="WorkersCompExp" type="VARCHAR" size="8"/>
+    <column name="vendor_since" phpName="VendorSince" type="VARCHAR" size="8"/>
+    <column name="liability_ins_exp" phpName="LiabilityInsExp" type="VARCHAR" size="8"/>
+    <column name="sales_contact" phpName="SalesContact" type="VARCHAR" size="51"/>
+    <column name="sales_contact_phone" phpName="SalesContactPhone" type="VARCHAR" size="11"/>
+    <column name="mgmt_contact" phpName="MgmtContact" type="VARCHAR" size="51"/>
+    <column name="mgmt_contact_phone" phpName="MgmtContactPhone" type="VARCHAR" size="11"/>
+    <column name="vendor_admin_cmts" phpName="VendorAdminCmts" type="VARCHAR" size="51"/>
+    <column name="acct_admin_cmts" phpName="AcctAdminCmts" type="VARCHAR" size="51"/>
+    <column name="est_admin_cmts" phpName="EstAdminCmts" type="VARCHAR" size="51"/>
+    <column name="general_cont" phpName="GeneralCont" type="INTEGER" size="1"/>
+    <column name="trade" phpName="Trade" type="VARCHAR" size="31"/>
+    <column name="review_date" phpName="ReviewDate" type="VARCHAR" size="8"/>
+    <column name="type" phpName="Type" type="VARCHAR" size="4"/>
+    <column name="print_1099" phpName="Print1099" type="INTEGER" size="1"/>
+    <column name="payment_class" phpName="PaymentClass" type="VARCHAR" size="3"/>
+    <column name="group_id" phpName="GroupId" type="VARCHAR" size="4"/>
+    <column name="social_sec_no" phpName="SocialSecNo" type="VARCHAR" size="15"/>
+    <column name="check_address_1" phpName="CheckAddress1" type="VARCHAR" size="51"/>
+    <column name="check_address_2" phpName="CheckAddress2" type="VARCHAR" size="51"/>
+    <column name="check_city" phpName="CheckCity" type="VARCHAR" size="51"/>
+    <column name="check_state" phpName="CheckState" type="VARCHAR" size="2"/>
+    <column name="check_zip" phpName="CheckZip" type="VARCHAR" size="11"/>
+    <column name="tax_rate" phpName="TaxRate" type="FLOAT"/>
+    <column name="UserID" phpName="Userid" type="VARCHAR" size="20"/>
+    <column name="LastModified" phpName="Lastmodified" type="DATE"/>
+    <column name="VendorType" phpName="Vendortype" type="VARCHAR" size="2"/>
+    <column name="AltVendorID" phpName="Altvendorid" type="VARCHAR" size="11"/>
+    <column name="VendoreKey" phpName="Vendorekey" type="VARCHAR" size="50"/>
+    <column name="GetPOFrequency" phpName="Getpofrequency" type="INTEGER" size="4"/>
+    <column name="POLastPollDate" phpName="Polastpolldate" type="DATE"/>
+    <column name="POLastPollTime" phpName="Polastpolltime" type="TIME"/>
+    <column name="LastAuditDate" phpName="Lastauditdate" type="DATE"/>
+    <column name="LastAuditTime" phpName="Lastaudittime" type="TIME"/>
+    <column name="FischerNetPassword" phpName="Fischernetpassword" type="VARCHAR" size="10"/>
+    <column name="eVendor" phpName="Evendor" type="INTEGER" size="1"/>
+    <column name="Zipped" phpName="Zipped" type="INTEGER" size="1"/>
+    <column name="ChkHoldstatus" phpName="Chkholdstatus" type="INTEGER" size="1"/>
+    <column name="ChkHoldReason" phpName="Chkholdreason" type="VARCHAR" size="50"/>
+    <column name="ChkHoldDate" phpName="Chkholddate" type="DATE"/>
+    <column name="ChkHoldByWhom" phpName="Chkholdbywhom" type="VARCHAR" size="20"/>
+    <column name="ContractRenewalDate" phpName="Contractrenewaldate" type="DATE"/>
+    <column name="DBA" phpName="Dba" type="VARCHAR" size="30"/>
+    <column name="WebVendor" phpName="Webvendor" type="INTEGER" size="1"/>
+    <column name="C2BAccessExpiration" phpName="C2baccessexpiration" type="DATE"/>
+    <column name="DisallowFieldCancel" phpName="Disallowfieldcancel" type="INTEGER" size="1"/>
+    <column name="EnableC2BEmails" phpName="Enablec2bemails" type="INTEGER" size="1"/>
+    <column name="C2BMessageEmailAddr" phpName="C2bmessageemailaddr" type="VARCHAR" size="51"/>
+    <column name="ADUserName" phpName="Adusername" type="VARCHAR" size="41"/>
+    <column name="Division" phpName="Division" type="INTEGER" size="2"/>
+    <column name="Filler2" phpName="Filler2" type="VARCHAR" size="83"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+</database>

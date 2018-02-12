@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# This is a modified version of the .bashrc installed by pervasive for
+# the psql user
+
+umask 022
+export PVSW_ROOT=/usr/local/psql
+export PATH=$PVSW_ROOT/bin:/bin:/usr/bin
+
+if [ $(uname -s) = "Darwin" ]
+then
+    export DYLD_LIBRARY_PATH=$PVSW_ROOT/lib:$PVSW_ROOT/lib64:$PVSW_ROOT/bin:/usr/lib
+else
+    export LD_LIBRARY_PATH=/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:$PVSW_ROOT/lib:$PVSW_ROOT/lib64:$PVSW_ROOT/bin:/usr/lib
+fi
+
+export MANPATH=$PVSW_ROOT/man:$MANPATH
+export BREQ=$PVSW_ROOT/lib
+export LD_BIND_NOW=1
+
+export ODBCSYSINI=/etc
+export ODBCINI=/etc/odbc.ini

@@ -1,0 +1,141 @@
+.floating-modal-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 998;
+	opacity: 0;
+	-webkit-transition: 1ms opacity ease;
+       -moz-transition: 1ms opacity ease;
+        -ms-transition: 1ms opacity ease;
+         -o-transition: 1ms opacity ease;
+            transition: 1ms opacity ease;
+    background: rgba(0,0,0,0.6);
+}
+
+.floating-modal {
+	position: fixed;
+	z-index: 999;
+	top: 0;
+	right: 0;
+    bottom: 0;
+	min-width: 300px;
+	height: 100%;
+	padding: 20px;
+	opacity: 0;
+	-webkit-transition: 1ms opacity ease;
+       -moz-transition: 1ms opacity ease;
+        -ms-transition: 1ms opacity ease;
+         -o-transition: 1ms opacity ease;
+            transition: 1ms opacity ease;
+    background-color: #fff;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.floating-modal-title-content {
+	font-size: 1.4em;
+	font-weight: bold;
+	margin-bottom: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.floating-modal.floating-modal-open {
+	opacity: 1;
+}
+
+.floating-modal-overlay.floating-modal-open {
+	opacity: 1;
+}
+
+.floating-modal-close {
+	padding: 0;
+	margin-right: 10px;
+    margin-top: 2px;
+	cursor: pointer;
+	background: transparent;
+	border: 0;
+	float: right;
+	font-size: 19.5px;
+	font-weight: 700;
+	line-height: 1;
+	color: #000;
+	text-shadow: 0px 1px 0px #fff;
+	opacity: .2;
+}
+
+.floating-modal-overlay.fade-and-drop
+{
+    display: block;
+
+    opacity: 0;
+}
+
+.floating-modal.fade-and-drop
+{
+    right: -300%;
+
+    opacity: 1;
+
+    display: block;
+}
+
+.floating-modal.fade-and-drop.floating-modal-open
+{
+    right: 0;
+
+    -webkit-transition: 500ms top 500ms ease;
+       -moz-transition: 500ms top 500ms ease;
+        -ms-transition: 500ms top 500ms ease;
+         -o-transition: 500ms top 500ms ease;
+            transition: 500ms top 500ms ease;
+}
+
+.floating-modal.fade-and-drop.floating-modal-open.floating-modal-anchored
+{
+
+    -webkit-transition: 500ms top 500ms ease;
+       -moz-transition: 500ms top 500ms ease;
+        -ms-transition: 500ms top 500ms ease;
+         -o-transition: 500ms top 500ms ease;
+            transition: 500ms top 500ms ease;
+}
+
+.floating-modal-overlay.fade-and-drop.floating-modal-open
+{
+    top: 0;
+
+    -webkit-transition: 500ms opacity ease;
+       -moz-transition: 500ms opacity ease;
+        -ms-transition: 500ms opacity ease;
+         -o-transition: 500ms opacity ease;
+            transition: 500ms opacity ease;
+
+    opacity: 1;
+}
+
+.floating-modal.fade-and-drop
+{
+    -webkit-transition: 500ms top ease;
+       -moz-transition: 500ms top ease;
+        -ms-transition: 500ms top ease;
+         -o-transition: 500ms top ease;
+            transition: 500ms top ease;
+}
+
+.floating-modal-overlay.fade-and-drop
+{
+    -webkit-transition: 500ms opacity 500ms ease;
+       -moz-transition: 500ms opacity 500ms ease;
+        -ms-transition: 500ms opacity 500ms ease;
+         -o-transition: 500ms opacity 500ms ease;
+            transition: 500ms opacity 500ms ease;
+}
+
+.noscroll { 
+  overflow: hidden;
+}

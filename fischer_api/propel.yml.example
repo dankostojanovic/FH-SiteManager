@@ -1,0 +1,17 @@
+propel:
+    paths:
+        # The directory where Propel expects to find your `schema.xml` file.
+        schemaDir: generated-reversed-database
+
+        # The directory where Propel should output generated object model classes.
+        phpDir: ORM
+
+    database:
+        connections:
+            default:
+                adapter: mysql
+                dsn: mysql:host=localhost;port=3306;dbname=fischer_api
+                user: webdev
+                password: W3bD3vP4ss
+                settings:
+                    charset: UTF8
